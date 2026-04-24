@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>住宅業界 SEOデータ一覧</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: #f5f7fa; color: #222; }
+  header { background: #1a3a5c; color: #fff; padding: 20px 32px; }
+  header h1 { font-size: 1.4rem; font-weight: 700; }
+  header p { font-size: 0.85rem; opacity: 0.7; margin-top: 4px; }
+  .updated { font-size: 0.8rem; opacity: 0.6; margin-top: 2px; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+  .filter-section { background: #fff; border-radius: 10px; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+  .filter-section h2 { font-size: 0.8rem; color: #888; margin-bottom: 8px; text-transform: uppercase; letter-spacing: .05em; }
+  .filter-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filter-btn { padding: 5px 14px; border-radius: 20px; border: 1px solid #ddd; background: #fff; font-size: 0.85rem; cursor: pointer; transition: all .15s; }
+  .filter-btn.active { background: #1a3a5c; color: #fff; border-color: #1a3a5c; }
+  .stats { display: flex; gap: 16px; margin-bottom: 20px; }
+  .stat-box { background: #fff; border-radius: 10px; padding: 14px 20px; flex: 1; box-shadow: 0 1px 4px rgba(0,0,0,.08); text-align: center; }
+  .stat-box .num { font-size: 2rem; font-weight: 700; color: #1a3a5c; }
+  .stat-box .label { font-size: 0.78rem; color: #888; margin-top: 2px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .card { background: #fff; border-radius: 10px; padding: 18px 20px; box-shadow: 0 1px 4px rgba(0,0,0,.08); display: flex; flex-direction: column; gap: 10px; transition: transform .15s, box-shadow .15s; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+  .card.hidden { display: none; }
+  .card-header { display: flex; justify-content: space-between; align-items: center; }
+  .badge { background: #e8f0fb; color: #1a3a5c; border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; font-weight: 600; }
+  .date { font-size: 0.8rem; color: #aaa; }
+  .card-title { font-size: 1rem; font-weight: 700; color: #1a3a5c; line-height: 1.4; }
+  .summary { font-size: 0.85rem; color: #555; line-height: 1.6; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 5px; }
+  .kw { background: #f0f4f8; color: #444; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; }
+  .btn-detail { margin-top: 4px; padding: 7px 16px; background: #1a3a5c; color: #fff; border: none; border-radius: 6px; font-size: 0.85rem; cursor: pointer; align-self: flex-start; }
+  .btn-detail:hover { background: #2a5a8c; }
+  /* モーダル */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1000; justify-content: center; align-items: flex-start; padding: 40px 16px; overflow-y: auto; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: #fff; border-radius: 12px; max-width: 800px; width: 100%; padding: 28px 32px; position: relative; }
+  .modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #888; }
+  .modal-body { margin-top: 8px; line-height: 1.8; font-size: 0.9rem; color: #333; white-space: pre-wrap; word-break: break-word; }
+  .modal-body h1, .modal-body h2, .modal-body h3 { color: #1a3a5c; margin: 1em 0 0.4em; }
+  .modal-body table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+  .modal-body th, .modal-body td { border: 1px solid #ddd; padding: 6px 10px; font-size: 0.85rem; }
+  .modal-body th { background: #f0f4f8; }
+  .no-results { text-align: center; padding: 48px; color: #aaa; grid-column: 1/-1; }
+</style>
+</head>
+<body>
+<header>
+  <h1>住宅業界 SEOデータ一覧</h1>
+  <p>住宅ローン・不動産価格・市場動向・リフォーム・新築ZEHの最新情報</p>
+  <p class="updated">最終更新：2026年04月24日 16:32</p>
+</header>
+<div class="container">
+  <div class="stats">
+    <div class="stat-box"><div class="num">1</div><div class="label">レポート数</div></div>
+    <div class="stat-box"><div class="num">1</div><div class="label">カテゴリ数</div></div>
+    <div class="stat-box"><div class="num">1</div><div class="label">対象年数</div></div>
+  </div>
+  <div class="filter-section">
+    <h2>カテゴリで絞り込む</h2>
+    <div class="filter-row"><button class="filter-btn active" data-filter="all" onclick="filterCards(this, 'all', 'cat')">すべて</button><button class="filter-btn" data-filter="新築・ZEH" onclick="filterCards(this, '新築・ZEH', 'cat')">新築・ZEH</button></div>
+  </div>
+  <div class="filter-section">
+    <h2>年で絞り込む</h2>
+    <div class="filter-row"><button class="filter-btn active" data-filter="all" onclick="filterCards(this, 'all', 'year')">すべて</button><button class="filter-btn" data-filter="2026" onclick="filterCards(this, '2026', 'year')">2026年</button></div>
+  </div>
+  <div class="grid" id="card-grid">
+    
+    <div class="card" data-category="新築・ZEH" data-year="2026" data-id="2026-04-zeh">
+      <div class="card-header">
+        <span class="badge">新築・ZEH</span>
+        <span class="date">2026年04月</span>
+      </div>
+      <h3 class="card-title">住宅業界 最新情報レポート（2026年4月）</h3>
+      <p class="summary">2026年4月現在、ZEH（ネット・ゼロ・エネルギー・ハウス）を取り巻く政策環境は大きな転換点にある。2025年4月より新築住宅への省エネ基準適合が義務化され、ZEHはすでに「先進的な住宅」から「標準的な目標ライン」へと位置づけが変わりつつ…</p>
+      <div class="keywords"><span class="kw">ZEH 補助金 2026</span><span class="kw">ゼッチ 補助金 いくら</span><span class="kw">みらいエコ住宅2026 ZEH</span><span class="kw">ZEH 申請方法 ハウスメーカー</span><span class="kw">GX ZEH とは</span><span class="kw">ZEH 省エネ基準 義務化 2030</span></div>
+      <button class="btn-detail" onclick="showDetail('2026-04-zeh')">詳細を見る</button>
+    </div>
+    <div class="no-results hidden" id="no-results">該当するレポートがありません</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const reports = [{"id": "2026-04-zeh", "title": "住宅業界 最新情報レポート（2026年4月）", "category": "zeh", "category_label": "新築・ZEH", "year": "2026", "month": "04", "date": "2026-04-24", "path": "2026/04/zeh/report.md", "keywords": ["ZEH 補助金 2026", "ゼッチ 補助金 いくら", "みらいエコ住宅2026 ZEH", "ZEH 申請方法 ハウスメーカー", "GX ZEH とは", "ZEH 省エネ基準 義務化 2030"], "summary": "2026年4月現在、ZEH（ネット・ゼロ・エネルギー・ハウス）を取り巻く政策環境は大きな転換点にある。2025年4月より新築住宅への省エネ基準適合が義務化され、ZEHはすでに「先進的な住宅」から「標準的な目標ライン」へと位置づけが変わりつつ…", "content": "# 住宅業界 最新情報レポート（2026年4月）\n\n---\n\n## 新築トレンド（ZEH・省エネ・スマートホーム）\n\n### 最新動向まとめ\n\n2026年4月現在、ZEH（ネット・ゼロ・エネルギー・ハウス）を取り巻く政策環境は大きな転換点にある。2025年4月より新築住宅への省エネ基準適合が義務化され、ZEHはすでに「先進的な住宅」から「標準的な目標ライン」へと位置づけが変わりつつある。政府は2030年までに省エネ基準をZEH水準へ引き上げることを方針として掲げており、今後は事実上のZEH義務化が見込まれる。普及面では、2024年度時点でZEH水準（ZEHシリーズ＋ZEH基準相当住宅）の注文住宅比率が61.8%、建売住宅で17.5%、合計で46.0%に達している。加えて2025年9月に経済産業省が「GX ZEH」という新たな上位基準を定義し、ZEHの高度化が進んでいる。\n\n---\n\n### ZEHとは（基本定義・種類）\n\nZEHは、高断熱化・高効率設備・再生可能エネルギーの組み合わせにより、年間の一次エネルギー消費量の収支をゼロ以下にする住宅。戸建住宅には以下の種類がある。\n\n| 種類 | 省エネ削減率（再エネ除く） | 再エネ込み削減率 | 主な対象 |\n|------|------|------|------|\n| ZEH | 20%以上 | 100%以上 | 標準タイプ |\n| Nearly ZEH | 20%以上 | 75〜100% | 寒冷地・低日射地 |\n| ZEH Oriented | 20%以上 | 追加削減不要 | 狭小地・多雪地 |\n| ZEH+ | 30%以上＋断熱等級6 | 100%以上 | 2025年4月〜新定義 |\n| GX ZEH | 35%以上＋断熱等級6 | 100%以上 | 2025年9月に新定義 |\n\n---\n\n### 2026年の補助金制度（みらいエコ住宅2026事業）\n\n国土交通省・環境省・経済産業省の3省が連携し、「住宅省エネ2026キャンペーン」として令和7年度補正予算（2025年11月28日以降の工事着手分）から実施中。\n\n**新築住宅向け補助（子育て・若者夫婦世帯対象）**\n\n| 住宅種別 | 補助額（5〜8地域） | 補助額（1〜4地域） |\n|------|------|------|\n| GX志向型住宅（断熱等級6以上） | 110万円/戸 | 125万円/戸 |\n| 長期優良住宅 | 75〜95万円/戸 | 最大125万円/戸 |\n| ZEH水準住宅 | 35〜40万円/戸 | 55〜60万円/戸 |\n| ZEH水準（古家除却あり） | 55〜60万円/戸 | 最大125万円/戸 |\n\n**予算規模と申請期間**\n\n- GX志向型住宅：第1期（〜5月12日）予算200億円、第2期（5月13日〜12月31日）合計750億円\n- ZEH水準・長期優良住宅：第1期予算400億円、第2期合計1,450億円\n- 注文住宅ZEH水準の申請締切：2026年9月30日\n- 申請は建築事業者・施工業者が行う（一般消費者の直接申請不可）\n\n**リフォーム向け補助（連携事業）**\n\n- 高断熱窓改修：最大100万円/戸（環境省、1,125億円）\n- 高効率給湯器導入：機器・性能ごとの定額支援（経済産業省、570億円）\n- 既存賃貸集合住宅の省エネ化：5〜7万円/台（経済産業省、35億円）\n- 開口部・躯体断熱改修：最大100万円/戸（300億円）\n\n---\n\n### 今後の動向・ロードマップ\n\n1. **2025年4月〜：省エネ基準の適合義務化**（新築住宅への断熱基準が法的に必須化）\n2. **2026年現在：ZEH水準が事実上の標準**（注文住宅の61.8%がZEH水準達成済み）\n3. **2027年4月〜：GX ZEH適用予定**（断熱等級6＋一次エネルギー35%以上削減が要件）\n4. **2030年：省エネ基準をZEH水準に引き上げ予定**（誘導基準・トップランナー基準も段階的に引き上げ）\n5. **2030年：新築戸建住宅の6割に太陽光発電設備設置**を目標\n6. **2028年度〜：建築物LCA実施促進制度の開始**（資材製造〜解体までのCO2削減へ）\n7. **2050年：カーボンニュートラル実現に向けた住宅部門の脱炭素化完成**\n\n---\n\n### SEOキーワード候補\n\n- ZEH 補助金 2026\n- ゼッチ 補助金 いくら\n- みらいエコ住宅2026 ZEH\n- ZEH 申請方法 ハウスメーカー\n- GX ZEH とは\n- ZEH 省エネ基準 義務化 2030\n- ZEH 断熱等性能等級6 違い\n- ZEH水準住宅 補助金 子育て世帯\n- 省エネ住宅 新築 補助金 2026\n- ZEH 建売 注文住宅 違い\n- Nearly ZEH ZEH Oriented 違い\n- ZEH 太陽光発電 義務化\n\n---\n\n### このカテゴリのSEO記事に向いている企業・サービス\n\n- **ハウスメーカー・工務店**：ZEH対応を強みとするモデルハウスや商品ラインナップのPRに直結。補助金活用事例記事は購入検討者の流入に効果大\n- **注文住宅・建売住宅の販売会社**：ZEH水準の普及率データや補助金情報を解説する記事で、資金計画を立てたい見込み客の集客に有効\n- **住宅設備メーカー（給湯器・窓・断熱材等）**：補助金対象製品との連動コンテンツで、住宅会社・消費者両方にリーチ可能\n- **不動産・住宅情報メディア**：ZEH義務化を見据えた「知っておくべき省エネ住宅の変化」系記事でSEO集客に強い\n\n---\n\n### 参照元（確認済み）\n\n- [脱炭素志向型住宅の導入支援事業（みらいエコ住宅2026事業）について｜環境省](https://www.env.go.jp/earth/earth/ondanka/building_insulation/GX-house_00003.html) ※更新日：2026年4月\n- [住宅の省エネ化への支援強化策（令和７年度補正予算案の閣議決定）｜環境省 報道発表](https://www.env.go.jp/press/press_01803.html) ※掲載日：2025年11月\n- [みらいエコ住宅2026事業について｜国土交通省](https://www.mlit.go.jp/jutakukentiku/house/jutakukentiku_house_tk4_000310.html) ※更新日：2026年4月\n- [住宅の省エネ化への支援強化に関する予算案を閣議決定｜国土交通省 報道発表](https://www.mlit.go.jp/report/press/house04_hh_001323.html) ※掲載日：2025年11月\n- [省エネ基準引き上げへ。脱炭素化も。｜国土交通省](https://www.mlit.go.jp/shoene-jutaku/) ※2025年4月施行情報含む\n- [「GX ZEH」及び「GX ZEH-M」を定義しました｜経済産業省](https://www.meti.go.jp/press/2025/09/20250926002/20250926002.html) ※掲載日：2025年9月\n- [住宅脱炭素NAVI｜環境省](https://policies.env.go.jp/earth/zeh/) ※更新日：2026年4月\n- [省エネ住宅とは｜環境省「住宅脱炭素NAVI」](https://policies.env.go.jp/earth/zeh/shoene/) ※ZEH種類・基準を確認済み\n\n---\n\n## ご利用上の注意\n- 上記の参照元URLは収集時点（2026年4月24日）で確認済みですが、情報は随時更新されます。記事作成前に最新情報をご確認ください。\n- みらいエコ住宅2026事業は予算に上限があり、第1期（〜5月12日）はすでに上限に近づいている可能性があります。最新の申請状況は公式サイト（https://mirai-eco2026.mlit.go.jp/）でご確認ください。\n- キーワードの検索ボリューム・競合度はGoogleサーチコンソールやキーワードプランナーで別途確認することをおすすめします。\n"}];
+let activeFilters = { cat: 'all', year: 'all' };
+
+function filterCards(btn, value, type) {
+  activeFilters[type] = value;
+  document.querySelectorAll(`.filter-btn[onclick*="${type}"]`).forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function applyFilters() {
+  const cards = document.querySelectorAll('.card');
+  let visible = 0;
+  cards.forEach(c => {
+    const catOk = activeFilters.cat === 'all' || c.dataset.category === activeFilters.cat;
+    const yearOk = activeFilters.year === 'all' || c.dataset.year === activeFilters.year;
+    c.classList.toggle('hidden', !(catOk && yearOk));
+    if (catOk && yearOk) visible++;
+  });
+  document.getElementById('no-results').classList.toggle('hidden', visible > 0);
+}
+
+function showDetail(id) {
+  const r = reports.find(x => x.id === id);
+  if (!r) return;
+  // Markdownをシンプルにレンダリング
+  let md = r.content || '（内容なし）';
+  md = md.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  md = md.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  md = md.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  md = md.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  md = md.replace(/^\| (.+)$/gm, (m) => m); // テーブルはそのまま
+  document.getElementById('modal-body').innerHTML = md;
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+}
+
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeModal();
+});
+</script>
+</body>
+</html>
